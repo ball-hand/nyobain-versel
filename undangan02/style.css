@@ -208,17 +208,30 @@ section h2::after {
 .akad-nikah,
 .resepsi {
     background-color: #FFFACD;
-    /* Light goldenrod yellow */
-    padding: 25px;
+    /*Lightgoldenrodyellow*/padding: 25px;
     border-radius: 8px;
     flex: 1 1 350px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
 }
 
+.akad-nikah p,
+.resepsi p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.akad-nikah h1,
+.resepsi h1 {
+    font-size: 4em;
+    color: #8B4513;
+    margin-bottom: 0px;
+}
 .akad-nikah h3,
 .resepsi h3 {
     color: #8B4513;
-    font-size: 1.8em;
+    font-size: 2em;
     margin-bottom: 15px;
 }
 
@@ -426,5 +439,72 @@ section h2::after {
 
     section h2 {
         font-size: 1.8em;
+    }
+}
+.music-btn {
+    position: fixed;
+    /* Membuat tombol tetap di layar saat discroll */
+    bottom: 20px;
+    /* Jarak dari bawah */
+    right: 20px;
+    /* Jarak dari kanan */
+    background-color: rgba(139, 69, 19, 0.8);
+    /* Warna coklat semi-transparan */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    /* Bentuk bulat */
+    width: 55px;
+    /* Lebar tombol */
+    height: 55px;
+    /* Tinggi tombol */
+    font-size: 1.2em;
+    /* Ukuran font */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Sedikit bayangan untuk efek 3D */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+    /* Pastikan tombol di atas semua elemen lain */
+}
+
+.music-btn:hover {
+    background-color: rgba(160, 82, 45, 0.9);
+    /* Warna sedikit lebih terang saat hover */
+    transform: scale(1.05);
+    /* Sedikit membesar saat hover */
+}
+
+.music-btn:active {
+    transform: scale(0.95);
+    /* Sedikit mengecil saat diklik */
+}
+
+.music-btn .play-icon,
+.music-btn .pause-icon {
+    font-size: 1.8em;
+    /* Ukuran ikon */
+    line-height: 1;
+    /* Agar ikon terpusat vertikal */
+    margin-left: 2px;
+    /* Penyesuaian kecil untuk ikon play */
+}
+
+/* Responsif untuk tombol musik */
+@media (max-width: 480px) {
+    .music-btn {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 1em;
+    }
+
+    .music-btn .play-icon,
+    .music-btn .pause-icon {
+        font-size: 1.5em;
     }
 }

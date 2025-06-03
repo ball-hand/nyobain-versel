@@ -7,50 +7,73 @@ document.addEventListener('DOMContentLoaded', () => {
     const rsvpMessage = document.getElementById('rsvp-message');
     const copyButtons = document.querySelectorAll('.copy-button');
 
-    // Function to open the invitation and play background music
+    // Dapatkan elemen audio dan tombol musik
+    const backgroundMusic = document.getElementById('background-music');
+    const musicToggleButton = document.getElementById('music-toggle-btn');
+    const playIcon = document.querySelector('#music-toggle-btn .play-icon');
+    const pauseIcon = document.querySelector('#music-toggle-btn .pause-icon');
+
+    let isPlaying = false; // Status awal musik
+
+    // Sembunyikan tombol musik di awal (Sudah diset di HTML dengan style="display:none;")
+    // musicToggleButton.style.display = 'none'; // Anda bisa hapus baris ini jika sudah di HTML
+
     openInvitationBtn.addEventListener('click', () => {
-        heroSection.style.display = 'none'; // Sembunyikan bagian hero
-        mainContent.style.display = 'block'; // Tampilkan konten utama
+        heroSection.style.display = 'none';
+        mainContent.style.display = 'block';
         document.body.style.overflow = 'visible'; // Izinkan scroll setelah dibuka
 
-        // Smooth scroll to the top of the main content
         mainContent.scrollIntoView({ behavior: 'smooth' });
 
-        // Optional: Play background music (uncomment and replace with your audio file)
-        // const audio = new Audio('your-background-music.mp3');
-        // audio.loop = true;
-        // audio.play().catch(e => console.error("Autoplay prevented:", e));
+        // Tampilkan tombol musik setelah undangan dibuka
+        if (musicToggleButton) {
+            musicToggleButton.style.display = 'flex'; // Menggunakan flex agar icon di tengah
+        }
 
-        // Trigger fade-in for visible sections
+        // Coba putar musik secara otomatis
+        if (backgroundMusic) {
+            backgroundMusic.play()
+                .then(() => {
+                    isPlaying = true;
+                    // Tampilkan ikon pause, sembunyikan ikon play
+                    if (playIcon) playIcon.style.display = 'none';
+                    if (pauseIcon) pauseIcon.style.display = 'inline-block';
+                })
+                .catch(e => {
+                    console.warn("Autoplay prevented, user needs to interact for music:", e);
+                    // Jika autoplay diblokir, pastikan ikon play terlihat
+                    isPlaying = false;
+                    if (playIcon) playIcon.style.display = 'inline-block';
+                    if (pauseIcon) pauseIcon.style.display = 'none';
+                });
+        }
+
         setTimeout(() => {
             checkScrollForFadeIn();
-        }, 100); // Give a small delay to ensure content is rendered
+        }, 100);
     });
 
-    // Function for fade-in effect on scroll
-    const checkScrollForFadeIn = () => {
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const viewportHeight = window.innerHeight;
-
-            if (sectionTop < viewportHeight * 0.8) { // Adjust this value as needed
-                section.classList.add('active');
+    // Event listener untuk tombol musik
+    if (musicToggleButton) {
+        musicToggleButton.addEventListener('click', () => {
+            if (backgroundMusic) {
+                if (isPlaying) {
+                    backgroundMusic.pause();
+                    if (playIcon) playIcon.style.display = 'inline-block';
+                    if (pauseIcon) pauseIcon.style.display = 'none';
+                } else {
+                    backgroundMusic.play();
+                    if (playIcon) playIcon.style.display = 'none';
+                    if (pauseIcon) pauseIcon.style.display = 'inline-block';
+                }
+                isPlaying = !isPlaying; // Balik status
             }
         });
-    };
-
-    // Listen for scroll events to trigger fade-in
-    window.addEventListener('scroll', checkScrollForFadeIn);
-
-    // Initial check for fade-in when page loads (if main content is already visible)
-    if (mainContent.style.display === 'block') {
-        checkScrollForFadeIn();
     }
 
-
-    // Countdown Timer
+    // ... (kode JavaScript lainnya, seperti countdown dan fade-in) ...
     const countdownElement = document.getElementById('countdown');
-    const eventDate = new Date('[Bulan] [Tanggal], [Tahun] [Waktu Akad]').getTime(); // Example: 'Dec 25, 2025 09:00:00'
+    const eventDate = new Date('June 22, 2025 07:00:00').getTime(); // Contoh: Ganti dengan tanggal acara Anda
 
     const updateCountdown = () => {
         const now = new Date().getTime();
@@ -70,30 +93,38 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const countdownInterval = setInterval(updateCountdown, 1000);
-    updateCountdown(); // Call immediately to avoid 1-second delay
+    updateCountdown();
 
+    const checkScrollForFadeIn = () => {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
 
-    // RSVP Form Submission (Client-side simulation)
+            if (sectionTop < viewportHeight * 0.8) {
+                section.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', checkScrollForFadeIn);
+
+    if (mainContent.style.display === 'block') {
+        checkScrollForFadeIn();
+    }
+
     rsvpForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Prevent default form submission
-
-        // In a real application, you'd send this data to a server (e.g., Google Sheets, Netlify Forms, custom backend)
+        e.preventDefault();
         const name = document.getElementById('name').value;
         const attendance = document.getElementById('attendance').value;
         const message = document.getElementById('message').value;
-
-        // Simulate successful submission
         rsvpMessage.textContent = `Terima kasih, ${name}! Kami mencatat Anda ${attendance === 'hadir' ? 'akan hadir' : 'tidak dapat hadir'}.`;
         rsvpMessage.style.display = 'block';
-        rsvpForm.reset(); // Clear the form
-
-        // Hide message after a few seconds
+        rsvpForm.reset();
         setTimeout(() => {
             rsvpMessage.style.display = 'none';
         }, 5000);
     });
 
-    // Copy to Clipboard functionality for bank/e-wallet details
     copyButtons.forEach(button => {
         button.addEventListener('click', () => {
             const textToCopy = button.dataset.text;
