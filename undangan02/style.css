@@ -1,14 +1,22 @@
 body {
+  
+    
+    background-image: url("Assets/bg-02.png");
+    background-size: cover;
     font-family: 'Open Sans', sans-serif;
-    margin: 0;
+    margin-left: 20px;
     padding: 0;
-    background-color: #f7f7f7;
+    /* background-color: #f7f7f7; */
     color: #333;
-    line-height: 1.6;
+    line-height: 1.5;
     overflow-x: hidden;
     /* Mencegah scroll horizontal */
 }
 
+bismilah{
+    width: 40px;
+    height: 40px;
+}
 /* Font untuk judul dan nama */
 h1,
 h2,
@@ -19,8 +27,11 @@ h3 {
 }
 
 .hero {
-    height: 100vh;
-    background: url('https://via.placeholder.com/1920x1080/87CEEB/FFFFFF?text=Background+Pernikahan') no-repeat center center/cover;
+    min-height: 100vh;
+    background:url("asset/bg-01.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     /* Ganti dengan gambar background Anda */
     display: flex;
     justify-content: center;
@@ -33,11 +44,18 @@ h3 {
 }
 
 .hero-content {
-    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    background-image: url("assets/image.png");
+    background-color: rgba(0, 0, 0, 0.382);
+        background-repeat: no-repeat;
+        background-size: cover;
+    margin-left: 20px;
+    margin-right: 20px;
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeInScale 1.5s ease-out forwards;
+    -webkit-animation: fadeInScale 1.5s ease-out forwards;
 }
 
 @keyframes fadeInScale {
@@ -89,6 +107,12 @@ h3 {
 }
 
 .main-content {
+    background-image:url("asset/background.png");
+    background-color: #97979780;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: repeat-y;
     padding: 40px 20px;
     max-width: 900px;
     margin: 0 auto;
@@ -96,6 +120,7 @@ h3 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     margin-top: 30px;
+    -webkit-backface-visibility:;
 }
 
 section {
