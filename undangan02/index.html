@@ -1,11 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Undangan Pernikahan [Nama Mempelai Pria] & [Nama Mempelai Wanita]</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <h1>TEST DEPLOY VERCEL</h1>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Undangan Pernikahan</h1>
+            <h2>[Nama Mempelai Pria] & [Nama Mempelai Wanita]</h2>
+            <p>Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu.</p>
+            <button id="open-invitation">Buka Undangan</button>
+        </div>
+    </div>
+
+    <div class="main-content" style="display: none;">
+        <section id="welcome" class="fade-in">
+            <h3>Assalamualaikum Warahmatullahi Wabarakatuh</h3>
+            <p>Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami.
+            </p>
+            <p>"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri,
+                supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang.
+                Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."</p>
+            <p>(QS. Ar-Rum: 21)</p>
+        </section>
+
+        <section id="couple" class="fade-in">
+            <h2>Mempelai</h2>
+            <div class="couple-details">
+                <div class="groom">
+                    <img src="https://via.placeholder.com/150" alt="Foto Mempelai Pria">
+                    <h3>[Nama Lengkap Mempelai Pria]</h3>
+                    <p>Putra dari Bapak [Nama Ayah Pria] & Ibu [Nama Ibu Pria]</p>
+                </div>
+                <div class="and-symbol">
+                    <p>&</p>
+                </div>
+                <div class="bride">
+                    <img src="https://via.placeholder.com/150" alt="Foto Mempelai Wanita">
+                    <h3>[Nama Lengkap Mempelai Wanita]</h3>
+                    <p>Putri dari Bapak [Nama Ayah Wanita] & Ibu [Nama Ibu Wanita]</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="fade-in">
+            <h2>Waktu & Tempat</h2>
+            <div class="event-details">
+                <div class="akad-nikah">
+                    <h3>Akad Nikah</h3>
+                    <p>Hari/Tanggal: [Hari], [Tanggal] [Bulan] [Tahun]</p>
+                    <p>Pukul: [Waktu Akad]</p>
+                    <p>Tempat: [Lokasi Akad Nikah]</p>
+                </div>
+                <div class="resepsi">
+                    <h3>Resepsi Pernikahan</h3>
+                    <p>Hari/Tanggal: [Hari], [Tanggal] [Bulan] [Tahun]</p>
+                    <p>Pukul: [Waktu Resepsi]</p>
+                    <p>Tempat: [Lokasi Resepsi]</p>
+                </div>
+            </div>
+            <a href="[Link Google Maps Lokasi]" target="_blank" class="btn-map">Lihat Lokasi di Google Maps</a>
+            <div id="countdown"></div>
+        </section>
+
+        <section id="gallery" class="fade-in">
+            <h2>Galeri Foto</h2>
+            <div class="photo-grid">
+                <img src="https://via.placeholder.com/200" alt="Foto Pernikahan 1">
+                <img src="https://via.placeholder.com/200" alt="Foto Pernikahan 2">
+                <img src="https://via.placeholder.com/200" alt="Foto Pernikahan 3">
+                <img src="https://via.placeholder.com/200" alt="Foto Pernikahan 4">
+            </div>
+        </section>
+
+        <section id="rsvp" class="fade-in">
+            <h2>Konfirmasi Kehadiran</h2>
+            <p>Mohon konfirmasi kehadiran Anda melalui formulir di bawah ini:</p>
+            <form id="rsvp-form">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="attendance">Kehadiran:</label>
+                <select id="attendance" name="attendance" required>
+                    <option value="">Pilih</option>
+                    <option value="hadir">Hadir</option>
+                    <option value="tidak-hadir">Tidak Hadir</option>
+                </select>
+
+                <label for="message">Pesan/Doa Restu:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+
+                <button type="submit">Kirim Konfirmasi</button>
+            </form>
+            <p id="rsvp-message" style="display: none; color: green; margin-top: 10px;">Terima kasih atas konfirmasinya!
+            </p>
+        </section>
+
+        <section id="gift" class="fade-in">
+            <h2>Amplop Digital & Hadiah</h2>
+            <p>Bagi Bapak/Ibu/Saudara/i yang ingin memberikan hadiah, dapat disalurkan melalui:</p>
+            <div class="bank-details">
+                <p><strong>[Nama Bank]</strong></p>
+                <p>Nomor Rekening: [Nomor Rekening]</p>
+                <p>Atas Nama: [Nama Pemilik Rekening]</p>
+                <button class="copy-button" data-text="[Nomor Rekening]">Salin Nomor Rekening</button>
+            </div>
+            <p>Atau bisa juga melalui [Platform E-wallet, contoh: Dana/Gopay]:</p>
+            <div class="ewallet-details">
+                <p>Nomor Telepon: [Nomor Telepon E-wallet]</p>
+                <button class="copy-button" data-text="[Nomor Telepon E-wallet]">Salin Nomor Telepon</button>
+            </div>
+            <p class="small-text">Kehadiran dan doa restu Anda adalah hadiah terindah bagi kami.</p>
+        </section>
+
+        <section id="closing" class="fade-in">
+            <h2>Terima Kasih</h2>
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk
+                memberikan doa restu.</p>
+            <p>Wassalamualaikum Warahmatullahi Wabarakatuh</p>
+            <p class="signature">Hormat kami,</p>
+            <p class="signature">[Nama Mempelai Pria] & [Nama Mempelai Wanita]</p>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>&copy; [Tahun] Undangan Pernikahan [Nama Mempelai Pria] & [Nama Mempelai Wanita]. Dibuat dengan cinta.</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

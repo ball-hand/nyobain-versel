@@ -1,0 +1,405 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Mencegah scroll horizontal */
+}
+
+/* Font untuk judul dan nama */
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    color: #8B4513;
+    /* Warna coklat tua */
+}
+
+.hero {
+    height: 100vh;
+    background: url('https://via.placeholder.com/1920x1080/87CEEB/FFFFFF?text=Background+Pernikahan') no-repeat center center/cover;
+    /* Ganti dengan gambar background Anda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    /* Mengatasi potensi masalah overflow */
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInScale 1.5s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #FFD700;
+    /* Warna emas */
+}
+
+.hero-content h2 {
+    font-size: 2em;
+    margin-top: 0;
+    color: #E0B0FF;
+    /* Warna lavender */
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+#open-invitation {
+    background-color: #8B4513;
+    /* Warna coklat tua */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#open-invitation:hover {
+    background-color: #A0522D;
+    /* Sedikit lebih terang */
+}
+
+.main-content {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+section {
+    margin-bottom: 60px;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px dashed #ddd;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: #8B4513;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Couple Section */
+.couple-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.couple-details img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #FFD700;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.groom,
+.bride {
+    text-align: center;
+    flex: 1 1 300px;
+    /* Fleksibel untuk responsif */
+    max-width: 350px;
+}
+
+.and-symbol {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    color: #8B4513;
+}
+
+/* Events Section */
+.event-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.akad-nikah,
+.resepsi {
+    background-color: #FFFACD;
+    /* Light goldenrod yellow */
+    padding: 25px;
+    border-radius: 8px;
+    flex: 1 1 350px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.akad-nikah h3,
+.resepsi h3 {
+    color: #8B4513;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.btn-map {
+    display: inline-block;
+    background-color: #4682B4;
+    /* SteelBlue */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-map:hover {
+    background-color: #5F9EA0;
+    /* CadetBlue */
+}
+
+#countdown {
+    margin-top: 25px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8B4513;
+}
+
+/* Gallery Section */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* RSVP Section */
+#rsvp-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#rsvp-form label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+#rsvp-form input[type="text"],
+#rsvp-form select,
+#rsvp-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#rsvp-form button[type="submit"] {
+    background-color: #28a745;
+    /* Green */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#rsvp-form button[type="submit"]:hover {
+    background-color: #218838;
+    /* Darker green */
+}
+
+/* Gift Section */
+.bank-details,
+.ewallet-details {
+    background-color: #F8F8FF;
+    /* GhostWhite */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.bank-details p,
+.ewallet-details p {
+    margin: 5px 0;
+}
+
+.copy-button {
+    background-color: #007bff;
+    /* Blue */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background-color: #0056b3;
+    /* Darker blue */
+}
+
+.small-text {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Closing Section */
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #8B4513;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5em;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    .couple-details,
+    .event-details {
+        flex-direction: column;
+    }
+
+    .groom,
+    .bride,
+    .akad-nikah,
+    .resepsi {
+        max-width: 100%;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2em;
+    }
+
+    #open-invitation {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .main-content {
+        padding: 20px 10px;
+    }
+
+    section {
+        margin-bottom: 40px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+}
