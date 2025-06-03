@@ -12,10 +12,7 @@ body {
     /* Mencegah scroll horizontal */
 }
 
-bismilah{
-    width: 40px;
-    height: 40px;
-}
+
 /* Font untuk judul dan nama */
 h1,
 h2,
@@ -47,8 +44,6 @@ h3 {
     background-image: url("assets/image.png");
         background-repeat: no-repeat;
         background-size: cover;
-    margin-left: 20px;
-    margin-right: 20px;
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
